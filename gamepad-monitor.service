@@ -1,0 +1,17 @@
+[Unit]
+Description=Gamepad Monitor Service
+After=multi-user.target
+Wants=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/gamepad_monitor.py
+Restart=always
+User=pi
+Group=pi
+WorkingDirectory=/home/pi
+StandardOutput=inherit
+StandardError=inherit
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
